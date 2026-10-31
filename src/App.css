@@ -1,0 +1,174 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #111;
+}
+
+.slider {
+  width: 90%;
+  height: 550px;
+  margin: 50px auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+.slide-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  animation: fade 0.7s ease;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.5;
+    transform: scale(1.03);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0,0,0,0.75),
+    rgba(0,0,0,0.1)
+  );
+}
+
+.slide-content {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  color: white;
+  max-width: 500px;
+}
+
+.slide-content h1 {
+  font-size: 55px;
+  margin-bottom: 20px;
+}
+
+.slide-content p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.explore-btn {
+  padding: 14px 30px;
+  background: #fff;
+  color: #111;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.explore-btn:hover {
+  background: #ff6b35;
+  color: white;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.2);
+  color: white;
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.arrow:hover {
+  background: #ff6b35;
+}
+
+.prev {
+  left: 20px;
+}
+
+.next {
+  right: 20px;
+}
+
+.dots {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background: white;
+  opacity: 0.5;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dot.active {
+  opacity: 1;
+  background: #ff6b35;
+  transform: scale(1.3);
+}
+
+.slide-number {
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  color: white;
+  font-size: 16px;
+}
+
+/* Responsive design */
+
+@media (max-width: 768px) {
+  .slider {
+    width: 95%;
+    height: 450px;
+    margin: 20px auto;
+  }
+
+  .slide-content {
+    left: 8%;
+    right: 8%;
+  }
+
+  .slide-content h1 {
+    font-size: 35px;
+  }
+
+  .slide-content p {
+    font-size: 15px;
+  }
+
+  .arrow {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+  }
+}
